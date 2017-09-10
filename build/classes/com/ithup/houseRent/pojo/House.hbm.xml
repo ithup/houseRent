@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 配置对象和表的映射关系 -->
+	<class name="com.ithup.houseRent.pojo.House" table="house">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="title" column="title"></property>
+		<property name="description" column="description"></property>
+		<property name="price" column="price"></property>
+		<property name="pubdate" column="pubdate"></property>
+		<property name="floorage" column="floorage"></property>
+		<property name="contact" column="contact"></property>
+		<!-- 多对一配置：房子：用户 (中介)-->
+		<many-to-one name="user" class="com.ithup.houseRent.pojo.Users" column="user_id" cascade="save-update"/>
+		<!-- 多对一：房子的类型（1）：房子（n） -->
+		<many-to-one name="type" class="com.ithup.houseRent.pojo.Type" column="type_id" cascade="save-update"/>
+		<!-- 多对一：房子对街道 -->
+		<many-to-one name="street" class="com.ithup.houseRent.pojo.Street" column="street_id" cascade="save-update"/>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 包结构 -->
+	<package name="houseRent" namespace="/" extends="struts-default">
+		<!-- 用户模块 -->
+		<!-- 房子模块 -->
+		<!-- 区域模块 -->
+		<!-- 街道模块 -->
+		<!-- 房子类型模块 -->
+	</package>
+	<package name="default_skip" namespace="/" extends="struts-default">
+		<default-action-ref name="actionErrorSkip">
+		</default-action-ref>
+		<action name="actionErrorSkip">
+			<result>/login.jsp</result>
+		</action>
+	</package>
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
