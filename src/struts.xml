@@ -6,17 +6,18 @@
 	<!-- 包结构 -->
 	<package name="houseRent" namespace="/" extends="struts-default">
 		<!-- 用户模块 -->
+		<action name="user_*" class="com.ithup.houseRent.action.UsersAction" method="{1}">
+			<result name="admin" type="redirectAction">house_findAll</result>
+			<result name="member">/house_list.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
 		<!-- 房子模块 -->
+		<action name="house_*" class="com.ithup.houseRent.action.HouseAction" method="{1}">
+			<result name="houses_manage">/manage.jsp</result>
+		</action>
 		<!-- 区域模块 -->
 		<!-- 街道模块 -->
 		<!-- 房子类型模块 -->
-	</package>
-	<package name="default_skip" namespace="/" extends="struts-default">
-		<default-action-ref name="actionErrorSkip">
-		</default-action-ref>
-		<action name="actionErrorSkip">
-			<result>/login.jsp</result>
-		</action>
 	</package>
 </struts>
 

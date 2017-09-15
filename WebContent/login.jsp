@@ -5,7 +5,29 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>租房网--用户登录</title>
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	<!--依赖的jQuery库-->
+	<script src="scripts/jquery-1.11.0.js" type="text/javascript" charset="utf-8" />
+	<!--validate校验库-->
+	<script src="scripts/jquery.validate.js" type="text/javascript" charset="utf-8" />
+	<!--国际化库，中文提示（可选）-->
+	<script src="scripts/messages_zh.js" type="text/javascript" charset="utf-8" />
 	<script type="text/javascript" src="scripts/function.js"></script>
+	<script type="text/javascript">
+			$(function(){
+				$("#formid").validate({
+					rules:{
+						name:"required",
+						password:{
+							required:true
+						}
+					},
+					messages:{
+						name:"用户名不能为空",
+						password:"密码不能为空"
+					}
+				})
+			})
+    </script>
 </head>
 <body>
 <div id="header" class="wrap">
@@ -15,7 +37,7 @@
 	<div class="dialog">
 		<div class="box">
 			<h4>用户登录</h4>
-			<form action="" method="post">
+			<form action="${pageContext.request.contextPath}/user_login.action" method="post" id="formid">
 				<div class="infos">	
 					<table class="field">					
 						<tr>

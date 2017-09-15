@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -29,15 +30,16 @@
 <div class="main wrap">
 <div id="houseArea">
 	<table class="house-list">
+		<c:forEach items="${houses}" var="house">
 		<tr>
 			<td class="house-thumb"><span><a href="show?id=11">
 			<img src="images/thumb_house.gif" /></a></span></td>
 			<td>
 				<dl>
-					<dt><a href="show?id=11">便宜好房</a></dt>
+					<dt><a href="show?id=11">${house.title}</a></dt>
 					<dd>
-						青山湖区上海北路,100平米<br />
-						联系方式：13823346544	
+						${house.street.name},${house.floorage}平米<br />
+						联系方式：${house.contact}	
 					</dd>
 				</dl>
 			</td>
@@ -46,23 +48,7 @@
 			<td class="house-price"><label class="ui-green">
 			<input type="button" name="search" value="删    除" /></label></td>
 		</tr>
-		<tr class="odd">
-			<td class="house-thumb"><span><a href="view.html">
-			<img src="images/thumb_house.gif" /></a></span></td>
-			<td>
-				<dl>
-					<dt><a href="show?id=11">地跌旁好房</a></dt>
-					<dd>
-						东湖区二七北路,78平米<br />
-						联系方式：13982347644				
-					</dd>
-				</dl>
-			</td>
-			<td class="house-type"><label class="ui-green">
-			<input type="button" onclick='update()' name="search" value="修    改" /></label></td>
-			<td class="house-price"><label class="ui-green">
-			<input type="button" name="search" value="删    除" /></label></td>
-		</tr> 
+		</c:forEach>
 	</table>
 </div>
 	<div class="pager">

@@ -85,4 +85,5 @@ public class House implements Serializable{
 	public void setStreet(Street street) {
 		this.street = street;
 	}
+	
 }
